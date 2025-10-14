@@ -1,6 +1,7 @@
 import { Agent } from '@mastra/core/agent';
 import { Memory } from '@mastra/memory';
 import { LibSQLStore } from '@mastra/libsql';
+import { google } from '@ai-sdk/google';
 import { getQueryLogTool, unblockDomainTool } from '../tools/adguard-tools';
 
 export const adguardAgent = new Agent({
@@ -54,7 +55,7 @@ You should look for:
 
 Be thorough, intelligent, and helpful in your analysis!
   `,
-  model: 'anthropic/claude-sonnet-4-5',
+  model: google('gemini-2.5-flash'),
   tools: {
     getQueryLogTool,
     unblockDomainTool,
